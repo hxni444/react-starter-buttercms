@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {
@@ -10,14 +11,15 @@ import BlogPage from './templates/blog';
 import ArticlePage from './templates/article';
 import NoApiKeyPage from './templates/noApiKey';
 
+const apiToken = process.env.REACT_APP_BUTTER_CMS_API_TOKEN;
+console.log(apiToken);
 const renderPage = (page) => {
   if (!process.env.REACT_APP_BUTTER_CMS_API_KEY) {
     /* This is a placeholder for when the API key is not set. */
     return <NoApiKeyPage />
   }
   return page;
-}
-
+} 
 const rootContainer = document.getElementById('root');
 const root = createRoot(rootContainer)
 
